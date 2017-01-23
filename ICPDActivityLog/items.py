@@ -20,3 +20,7 @@ class IcpdactivitylogItem(scrapy.Item):
     time = scrapy.Field()
     date = scrapy.Field()
 
+class IcpdScrapedBody(scrapy.Item):
+    url = scrapy.Field()
+    body = scrapy.Field()
+
