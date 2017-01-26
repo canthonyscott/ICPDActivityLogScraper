@@ -21,6 +21,11 @@ class LogItem(Base):
     time = Column(String(1000))
     date = Column(String(1000))
 
+class DetailItem(Base):
+    __tablename__ = 'ICPDLogDetail'
+    dispatch = Column(Integer, primary_key=True)
+    details = Column(String(5000))
+
 db = create_engine('mysql+pymysql://%s:%s@127.0.0.1/ICPDLog?charset=utf8mb4' % (username, password), echo=False)
 
 Base.metadata.create_all(db)
@@ -42,5 +47,15 @@ def AddToDb(scrapy_item):
     session = Session()
     session.merge(item)
     session.commit()
+
+def AddDetails(scrapy_detail):
+    detail = DetailItem()
+    detail.dispatch = scrapy_detail['dispatch']
+    detail.details = scrapy_detail['details']
+
+    session = Session()
+    session.merge(detail)
+    session.commit()
+
 
 

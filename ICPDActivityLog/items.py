@@ -24,3 +24,7 @@ class IcpdScrapedBody(scrapy.Item):
     url = scrapy.Field()
     body = scrapy.Field()
 
+class IcpdScrapedDetail(scrapy.Item):
+    dispatch = scrapy.Field()
+    details = scrapy.Field()
+
