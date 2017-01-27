@@ -20,7 +20,7 @@ class DetailsSpider(scrapy.Spider):
             raise CloseSpider("No further dates to scrape")
 
 
-        # todo Create request for each dispatch url and extract details
+        # Create request for each dispatch url and extract details
         for dispatch in dispatches:
             detail_page = response.urljoin(dispatch)
             yield scrapy.Request(detail_page, callback=self.scrape_details)
