@@ -45,3 +45,4 @@ fabric.properties
 *.pyc
 __pycache__/
 *.json
+ENVVAR
