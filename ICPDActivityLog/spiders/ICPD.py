@@ -10,7 +10,7 @@ class ICPDSpider(scrapy.Spider):
     now = date.today()
 
     start_urls =[
-        'http://www.iowa-city.org/icgov/apps/police/activityLog.asp'
+        'https://www8.iowa-city.org/icgov/apps/police/activitylog.asp'
     ]
 
     def parse(self, response):
