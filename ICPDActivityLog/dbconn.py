@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Table, Boolean
+from sqlalchemy import Column, Integer, String, Table, Boolean, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -20,6 +20,9 @@ class LogItem(Base):
     apt = Column(String(1000))
     time = Column(String(1000))
     date = Column(String(1000))
+    lat = Column(Float)
+    lon = Column(Float)
+    geocode_failed = Column(Boolean)
 
 db = create_engine('mysql+pymysql://%s:%s@127.0.0.1/ICPDLog?charset=utf8mb4' % (username, password), echo=False)
 
